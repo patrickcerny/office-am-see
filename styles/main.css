@@ -61,7 +61,7 @@ h1,
 }
 
 .container .row .left-wrap .left p {
-  font-family: "Muli", sans-serif;
+  font-family: 'Muli', sans-serif;
   font-size: 3.5em;
   margin-right: 2em;
   font-weight: bold;
@@ -199,7 +199,7 @@ h1,
 }
 
 .container .right .icon-list .icon {
-  margin-right: 1em;
+  margin: 0 0.5em;
   font-size: 1.5em;
 }
 
@@ -227,7 +227,7 @@ h1,
 .slogan,
 button,
 .form {
-  font-family: "Lato", sans-serif;
+  font-family: 'Lato', sans-serif;
 }
 
 .slogan,
@@ -236,7 +236,6 @@ button,
 }
 
 @media screen and (max-width: 576px) {
-
   .slogan,
   .form-subscribe {
     margin-left: auto;
@@ -244,41 +243,58 @@ button,
 }
 
 .twitter::before {
-  font-family: "Font Awesome 5 Brands";
-  content: "\f099";
+  font-family: 'Font Awesome 5 Brands';
+  content: '\f099';
 }
 
 .facebook::before {
-  font-family: "Font Awesome 5 Brands";
-  content: "\f09a";
+  font-family: 'Font Awesome 5 Brands';
+  content: '\f09a';
 }
 
 .instagram::before {
-  font-family: "Font Awesome 5 Brands";
-  content: "\f16d";
+  font-family: 'Font Awesome 5 Brands';
+  content: '\f16d';
 }
 
 .github::before {
-  font-family: "Font Awesome 5 Brands";
-  content: "\f09b";
+  font-family: 'Font Awesome 5 Brands';
+  content: '\f09b';
 }
 
 .stackoverflow::before {
-  font-family: "Font Awesome 5 Brands";
-  content: "\f16c";
+  font-family: 'Font Awesome 5 Brands';
+  content: '\f16c';
 }
 
 .youtube::before {
-  font-family: "Font Awesome 5 Brands";
-  content: "\f167";
+  font-family: 'Font Awesome 5 Brands';
+  content: '\f167';
 }
 
 .medium::before {
-  font-family: "Font Awesome 5 Brands";
-  content: "\f23a";
+  font-family: 'Font Awesome 5 Brands';
+  content: '\f23a';
 }
 
 .linkedin::before {
-  font-family: "Font Awesome 5 Brands";
-  content: "\f08c";
+  font-family: 'Font Awesome 5 Brands';
+  content: '\f08c';
+}
+
+button {
+  font-family: 'Lato', sans-serif;
+  font-size: 1em;
+  padding: 0.8em 1.5em;
+  border: 1px solid black;
+  border-radius: 25px;
+  background-color: black;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  background-color: white;
+  color: black;
 }
