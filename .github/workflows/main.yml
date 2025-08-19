@@ -30,7 +30,7 @@ jobs:
         with:
           context: .
           push: true
-          tags: ghcr.io/${{ github.repository }}:latest
+          tags: ghcr.io/patrickcerny/office-am-see:latest
 
       - name: Deploy to VPS
         uses: appleboy/ssh-action@v1.1.0
@@ -42,8 +42,13 @@ jobs:
           command_timeout: 10m
           script: |
             set -e
-            docker login ghcr.io -u ${{ secrets.GHCR_USERNAME }} -p ${{ secrets.GHCR_TOKEN }}
-            docker pull ghcr.io/${{ github.repository }}:latest
-            docker stop website || true
-            docker rm website || true
-            docker run -d --name website -p 8085:80 ghcr.io/${{ github.repository }}:latest
+            if [ -n "${GHCR_TOKEN}" ] && [ -n "${GHCR_USERNAME}" ]; then
+              echo "${GHCR_TOKEN}" | docker login ghcr.io -u "${GHCR_USERNAME}" --password-stdin
+            fi
+            docker pull ghcr.io/patrickcerny/office-am-see:latest
+            docker stop office-am-see || true
+            docker rm office-am-see || true
+            docker run -d --name office-am-see -p 8085:80 ghcr.io/patrickcerny/office-am-see:latest
+        env:
+          GHCR_USERNAME: ${{ secrets.GHCR_USERNAME }} # PAT username (if image is private)
+          GHCR_TOKEN: ${{ secrets.GHCR_TOKEN }} # PAT with read:packages
